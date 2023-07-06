@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from listings.models import Band
+from listings.forms import ContactUsForm
 
 
 
 def welcome(request):
     return HttpResponse('<h1>Welcome Master</h1>')
+
+def contact(request):
+    form = ContactUsForm()
+    return render(request, 'listings/contact.html', {'form': form})
 
 def band_list(request):
     band = Band.objects.all()
