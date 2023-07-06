@@ -7,6 +7,7 @@ def welcome(request):
     return HttpResponse('<h1>Welcome Master</h1>')
 
 def hello(request):
-    return render(request, 'listings/hello.html', {'bands': Band})
+    band = Band.objects.all()
+    return render(request, 'listings/hello.html', {'bands': band})
 
 
